@@ -6,6 +6,11 @@ This repositry is made to practise DSA. People Involved in this group can submmi
 
 - They can submmit as many approach as they can come up with. So that we all will get an idea of different approach
 - Two approach needs to me submmited i.e brout force approach and optimised one.
+
+# Algo statement - The approach to soleve the problem
+
+# Time complexity and space-complexity must be mentioned to each approach.
+
 - EveryOne need to submmit the code with their name or pan Name in Comment.
 - After cheeking the working of code, they need to comment the code and push.
 - So anyone can cheek and the any paeticular code just by uncommenting.
