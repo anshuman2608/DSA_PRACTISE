@@ -46,3 +46,31 @@
 
 // [3, 3, 4, 5, 5, 5, 6]
 
+
+// Optimised Solution : --
+
+function max_in_window(arr, n, k) {
+
+    let l = 0;
+    let r = k - 1
+    let res = []
+    while (r < n) {
+        res.push(max(l, r, arr))
+        l++
+        r++
+    }
+
+    function max(p1, p2, arr) {
+        let m = -Infinity
+        for (let i = p1; i <= p2; i++) {
+            if (arr[i] > m) {
+                m = arr[i]
+            }
+        }
+        return m
+    }
+
+    return res
+}
+
+console.log(max_in_window([1, 2, 3, 1, 4, 5, 2, 3, 6], 9, 3))
