@@ -1,0 +1,13 @@
+<html>
+<body>
+<h2>The getAttribute() Method</h2>
+<button id="myButton">BUTTON</button>
+<p>The value of the "id" attribute of the button is:</p>
+<p id="demo"></p>
+</body>
+</html>
+<script>
+const myButton = document.getElementById("myButton");
+let out = myButton.getAttribute("id");
+document.getElementById("demo").innerText = out;
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Add more styles for responsiveness as needed */
+    </style>
+    <title>Greeting Page</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="greeting">Greeting</h1>
+    </header>
+    <main>
+      <p>Greetings From Outscale.ai</p>
+      <img id="greetingImage" src="" />
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
+<script>
+  // Get the greeting element by its ID
+  const greetingElement = document.getElementById("greeting");
+  const greetingImage = document.getElementById("greetingImage");
+  // Function to determine the time of day and set the greeting message
+  function setGreeting() {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    const countryIP = parseInt(
+      new URLSearchParams(window.location.search).get("ip")
+    );
+    console.log("ip::", countryIP);
+    let greeting = "Hello";
+    let imageLink ="";
+    if (currentHour >= 5 && currentHour < 12) {
+      greeting = "Good Morning";
+      imageLink =
+        "https://i.pinimg.com/736x/76/1f/6b/761f6b3bb019a57a2035ca6b39600837.jpg";
+    } else if (currentHour >= 12 && currentHour < 18) {
+      greeting = "Good Afternoon";
+      imageLink =
+        "https://res.cloudinary.com/premiumwishes/images/w_800,h_550/f_auto,q_auto/v1601050305/GA-1_551223acc/GA-1_551223acc.jpg?_i=AA";
+    }
+    {
+      greeting = "Good Night";
+      String(countryIP) !== "NaN"
+        ? (imageLink =
+            "https://www.adobe.com/express/discover/messages/text/media_14a5a60214cefceab5ae1e2b78ef77db649e85c6d.jpeg?width=400&format=jpeg&optimize=medium")
+        : (imageLink =
+            "https://media.istockphoto.com/id/621465648/photo/welcome-inscription-hand-drawn-letter-in-blue-envelope.jpg?s=612x612&w=0&k=20&c=9-vOIgNANOZxzLYfBF5XyNAEHuYeUdI2-p75iz4UCMw=");
+    }
+
+    let countryName = "User";
+
+    if (countryIP % 2 === 1) {
+      countryName = "India";
+    } else if (countryIP % 10 === 0) {
+      countryName = "America";
+    } else if (countryIP % 2 === 0) {
+      countryName = "England";
+    }
+
+    greetingElement.textContent = `${greeting} ${countryName}`;
+    greetingImage.src = imageLink;
+  }
+
+  // Ensure the DOM is fully loaded before executing the function
+  window.addEventListener("load", setGreeting);
+</script>
