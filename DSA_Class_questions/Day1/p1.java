@@ -5,9 +5,10 @@ package DSA_Class_questions.Day1;
 
 public class p1 {
     public static void main(String[] args){
-        int[] arr={1,0,2,0,3,0,4,0};
+        int[] arr={0,1,0,2,0,3,0,4,0,0,0};
         int n=arr.length;
         pushZerosToEnd(arr,n);
+       // pushZerosToLast(arr);
         for(int i=0;i<n;i++){
             System.out.print(arr[i]+" ");
         }
@@ -16,6 +17,28 @@ public class p1 {
 
 
     }
+     //Simple way to do it by using two pointers
+     // Here the order of the function is not maintained 
+     // So if we want to maintain the order we have to optimize it
+
+     public static void pushZerosToLast(int[] arr){
+        int i=0;
+        int j=arr.length-1;
+        while(i<j){
+            if(arr[i]!=0){
+               i++;
+            }else{
+                int temp=arr[j];
+                arr[j]=arr[i];
+                arr[i]=temp;
+                j--;
+            }
+        }
+     }
+     
+
+
+    //In this function the order of the integers will be maintained 
     public static void pushZerosToEnd(int[] arr, int n) {
         // code here
         int count=0;
